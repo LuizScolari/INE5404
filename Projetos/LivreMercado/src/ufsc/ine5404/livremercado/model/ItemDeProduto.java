@@ -9,8 +9,12 @@ package ufsc.ine5404.livremercado.model;
  * @author luizscolari
  */
 public class ItemDeProduto {
+    private Produto produto;
+    private int quantidade;
 
     public ItemDeProduto(Produto produto1, int quantidade1) {
+        this.produto = produto1;
+        this.quantidade = quantidade1;
     }
 
     /**
@@ -40,6 +44,4 @@ public class ItemDeProduto {
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
-    private Produto produto;
-    private int quantidade;
 }

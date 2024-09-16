@@ -9,7 +9,14 @@ package ufsc.ine5404.livremercado.model;
  * @author luizscolari
  */
 public class Produto {
-
+    private String nome;
+    private double preco;
+    
+    public Produto(String nome, double preco){
+        this.nome = nome;
+        this.preco = preco;
+    }
+    
     /**
      * @return the nome
      */
@@ -27,7 +34,7 @@ public class Produto {
     /**
      * @return the preco
      */
-    public float getPreco() {
+    public double getPreco() {
         return preco;
     }
 
@@ -36,9 +43,5 @@ public class Produto {
      */
     public void setPreco(float preco) {
         this.preco = preco;
-    }
-    private String nome;
-    private float preco;
-    
-    
+    } 
 }

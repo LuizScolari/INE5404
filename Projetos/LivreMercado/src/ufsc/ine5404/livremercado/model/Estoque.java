@@ -24,4 +24,9 @@ public class Estoque {
     public boolean contains(Object o){
         return itensEmEstoque.contains(o);
     }
+    public void listarProdutos(){
+        for (ItemDeProduto item : itensEmEstoque){
+            System.out.println(item.getProduto().getNome() + " - Quantidade: " + item.getQuantidade());
+        } 
+    }
 }

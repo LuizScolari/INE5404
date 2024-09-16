@@ -5,6 +5,7 @@
 package ufsc.ine5404.livremercado;
 
 import ufsc.ine5404.livremercado.model.Estoque;
+import ufsc.ine5404.livremercado.model.Produto;
 
 /**
  *
@@ -16,8 +17,10 @@ public class LivreMercado {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        Estoque e = new Estoque();
+        Estoque estoque = new Estoque();
+        Produto novoProduto = new Produto("Arroz", 10.00);
+        boolean resultado = estoque.add(novoProduto, 12);
+        estoque.listarProdutos();
         //Acrescentar coisas ao estoque e listar produtos
     }
     
