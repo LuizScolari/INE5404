@@ -8,6 +8,21 @@ package ufsc.ine5404.livremercado.model;
  *
  * @author luizscolari
  */
-public class Comprador {
+public class Comprador extends Pessoa{
+    private Carrinho carrinho;
     
+    public Comprador(String nome) {
+        super(nome);
+    }
+    
+    public void adicioneAoCarrinho(Produto produto, Vendedor vendedor, int quantidade){
+        carrinho.adicioneItem(produto, vendedor, quantidade);
+    }
+    
+    public void efeturarCompra(){
+    }
+    
+    public Carrinho getCarrinho(){
+        return carrinho;
+    }
 }

@@ -8,13 +8,17 @@ package ufsc.ine5404.livremercado.model;
  *
  * @author luizscolari
  */
-public class ItemDeProduto {
+public class ItemEstoque {
     private Produto produto;
     private int quantidade;
 
-    public ItemDeProduto(Produto produto1, int quantidade1) {
-        this.produto = produto1;
-        this.quantidade = quantidade1;
+    public ItemEstoque(Produto produto, int quantidade) {
+        this.produto = produto;
+        this.quantidade = quantidade;
+    }
+    
+    public void adicioneQuantidade(int quantidade){
+        this.quantidade += quantidade;
     }
 
     /**
@@ -25,17 +29,18 @@ public class ItemDeProduto {
     }
 
     /**
-     * @param produto the produto to set
-     */
-    public void setProduto(Produto produto) {
-        this.produto = produto;
-    }
-
-    /**
      * @return the quantidade
      */
     public int getQuantidade() {
         return quantidade;
+    }
+    
+    public void removaQuantidade(int quantidade){
+        if (quantidade <= 0){
+            this.quantidade = 0;
+        } else {
+            this.quantidade -= quantidade;
+        }
     }
 
     /**
@@ -43,5 +48,5 @@ public class ItemDeProduto {
      */
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
-    }
+    }    
 }

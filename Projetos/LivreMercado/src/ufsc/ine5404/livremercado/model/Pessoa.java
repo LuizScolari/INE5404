@@ -8,6 +8,14 @@ package ufsc.ine5404.livremercado.model;
  *
  * @author luizscolari
  */
-public class Pagamento {
+public class Pessoa {
+    private String nome;
     
+    public Pessoa(String nome){
+        this.nome = nome;
+    }
+    
+    public String getNome(){
+    return nome;
+    }
 }

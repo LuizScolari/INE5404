@@ -11,22 +11,46 @@ import java.util.ArrayList;
  * @author luizscolari
  */
 public class Estoque {
-    private final ArrayList<ItemDeProduto> itensEmEstoque;
+    private final ArrayList<ItemEstoque> itensEmEstoque;
 
     public Estoque() {
-        this.itensEmEstoque = new ArrayList<ItemDeProduto>();
-        
+        this.itensEmEstoque = new ArrayList<ItemEstoque>();
     }
-    public boolean add(Produto produto, int quantidade){
-        ItemDeProduto itemDeProdutoParaAdicionar = new ItemDeProduto(produto, quantidade);
-        return itensEmEstoque.add(itemDeProdutoParaAdicionar);
+    
+    public ArrayList<ItemEstoque> getItens() {
+        return itensEmEstoque;
     }
-    public boolean contains(Object o){
-        return itensEmEstoque.contains(o);
+    
+    public void adicioneItem(Produto produto, int quantidade) {
+        for (ItemEstoque item : itensEmEstoque) {
+            if (item.getProduto().equals(produto)) {
+                item.setQuantidade(item.getQuantidade() + quantidade);
+            }
     }
-    public void listarProdutos(){
-        for (ItemDeProduto item : itensEmEstoque){
-            System.out.println(item.getProduto().getNome() + " - Quantidade: " + item.getQuantidade());
-        } 
+    
+        ItemEstoque itemDeProdutoParaAdicionar = new ItemEstoque(produto, quantidade);
+        itensEmEstoque.add(itemDeProdutoParaAdicionar); 
+    }
+    
+    public void reduzaQuantidade(Produto produto, int quantidade){
+        for (ItemEstoque item : itensEmEstoque){
+            if (item.getProduto().equals(produto)){
+                int valor  = item.getQuantidade() - quantidade;
+                if (valor > 0) {
+                    item.setQuantidade(valor);
+                } else {
+                itensEmEstoque.remove(item);
+                }                           
+            }
+        }
+    }
+    
+    public int quantidadeEmEstoque(Produto produto) {
+        for (ItemEstoque item : itensEmEstoque) {
+            if (item.getProduto().equals(produto)) {
+                return item.getQuantidade();
+            }
+        }
+        return 0; 
     }
 }

@@ -10,38 +10,40 @@ package ufsc.ine5404.livremercado.model;
  */
 public class Produto {
     private String nome;
+    private String modelo;
+    private String marca;
     private double preco;
+    private Categoria categoria;
     
-    public Produto(String nome, double preco){
+    public Produto(String nome, String modelo, String marca, double preco, Categoria categoria){
         this.nome = nome;
+        this.modelo = modelo;
+        this.marca = marca;
         this.preco = preco;
+        this.categoria = categoria;
     }
     
-    /**
-     * @return the nome
-     */
-    public String getNome() {
+    public Categoria getCategoria(){
+        return categoria;
+    }
+    
+    public void setCategoria(Categoria categoria){
+        this.categoria = categoria;
+    }
+    
+    public String getMarca(){
+        return marca;
+    }
+    
+    public String getModelo(){
+        return modelo;
+    }
+    
+    public String getNome(){
         return nome;
     }
-
-    /**
-     * @param nome the nome to set
-     */
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    /**
-     * @return the preco
-     */
-    public double getPreco() {
+    
+    public Double getPreco(){
         return preco;
     }
-
-    /**
-     * @param preco the preco to set
-     */
-    public void setPreco(float preco) {
-        this.preco = preco;
-    } 
 }

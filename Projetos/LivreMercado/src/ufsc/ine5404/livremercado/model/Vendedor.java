@@ -8,6 +8,18 @@ package ufsc.ine5404.livremercado.model;
  *
  * @author luizscolari
  */
-public class Vendedor {
+public class Vendedor extends Pessoa{
     
+    private Estoque estoque = new Estoque();
+    
+    public Vendedor(String nome) {
+        super(nome);
+    }
+    
+    public void adicioneProdutoAoEstoque(Produto produto, int quantidade){
+       estoque.adicioneItem(produto, quantidade);
+    }
+    public Estoque getEstoque(){
+        return estoque;
+    }
 }

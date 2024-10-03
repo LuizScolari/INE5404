@@ -17,13 +17,6 @@ public class LivreMercado {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Estoque estoque = new Estoque();
-        Produto novoProduto = new Produto("Arroz", 10.00);
-        Produto novoProduto1 = new Produto("Feijão", 11.00);
-        boolean resultado = estoque.add(novoProduto, 12);
-        boolean resultado1 = estoque.add(novoProduto1, 20);
-        estoque.listarProdutos();
-        //Acrescentar coisas ao estoque e listar produtos
     }
     
 }
