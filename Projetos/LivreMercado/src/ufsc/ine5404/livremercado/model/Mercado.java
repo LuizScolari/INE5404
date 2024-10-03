@@ -17,21 +17,27 @@ public class Mercado {
     private List<Vendedor> vendedores;
     
     public Mercado(){
-    this.categorias = new ArrayList<>();
-    this.compradores = new ArrayList<>();
-    this.vendedores = new ArrayList<>();
+    categorias = new ArrayList<>();
+    compradores = new ArrayList<>();
+    vendedores = new ArrayList<>();
     }
     
     public void adicioneCategoria(Categoria categoria){
-        categorias.add(categoria);
+        if(!(categorias.contains(categoria))) {
+                categorias.add(categoria);
+            }
     }
     
     public void adicioneComprador(Comprador comprador){
-        compradores.add(comprador);
+        if(!(compradores.contains(comprador))) {
+                compradores.add(comprador);
+            }
     }
     
     public void adicioneVendedor(Vendedor vendedor){
-        vendedores.add(vendedor);
+        if(!(vendedores.contains(vendedor))) {
+                vendedores.add(vendedor);
+            }
     }
     
     public List<Categoria> getCategorias(){
