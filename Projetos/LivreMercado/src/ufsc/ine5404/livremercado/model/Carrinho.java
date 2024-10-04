@@ -15,7 +15,7 @@ public class Carrinho {
     private List<ItemCompra> itens;
     
     public Carrinho(){
-        this.itens = new ArrayList();
+        itens = new ArrayList();
     }
     public void adicioneItem(Produto produto, Vendedor vendedor, int quantidade){
         ItemCompra item = new ItemCompra(produto, vendedor, quantidade);

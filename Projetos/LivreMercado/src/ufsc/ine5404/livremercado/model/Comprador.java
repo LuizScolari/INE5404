@@ -20,6 +20,7 @@ public class Comprador extends Pessoa{
     }
     
     public void efeturarCompra(){
+        //implementar efetuar compra
     }
     
     public Carrinho getCarrinho(){

@@ -18,8 +18,8 @@ public class Categoria {
     
     public Categoria(String nome){
         this.nome = nome;
-        this.produtos = new ArrayList<>();
-        this.subcategorias = new ArrayList<>();
+        produtos = new ArrayList<>();
+        subcategorias = new ArrayList<>();
     }
     
     public void adicioneProduto(Produto produto){
