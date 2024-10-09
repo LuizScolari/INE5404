@@ -17,19 +17,31 @@ public class Carrinho {
     public Carrinho(){
         itens = new ArrayList();
     }
+    
     public void adicioneItem(Produto produto, Vendedor vendedor, int quantidade){
-        ItemCompra item = new ItemCompra(produto, vendedor, quantidade);
+       
+        int quantiaEstoque = vendedor.getEstoque().quantidadeEmEstoque(produto);
         
-        for(ItemCompra p : itens){
-            if(p.getProduto().equals(produto) && p.getVendedor().equals(vendedor)){
-                item.setQuantidade(item.getQuantidade() + quantidade);
+        if (quantiaEstoque < quantidade){
+            throw new IllegalArgumentException();
+        }
+        
+        for (ItemCompra item: itens){
+            if(item.getProduto().equals(produto) && item.getVendedor().equals(vendedor)){
+                if (item.getQuantidade()+quantidade > quantiaEstoque){
+                    throw new IllegalArgumentException();
+                }
+                item.adicioneQuantidade(quantidade);
+                return;
             }
         }
-        itens.add(item);
+        itens.add(new ItemCompra(produto, vendedor, quantidade));
     }
+    
     public List<ItemCompra> getItens(){
         return itens;
     }
+    
     public void removaItem(Produto produto){
         for(ItemCompra p : itens){
             if (p.getProduto().equals(produto)){

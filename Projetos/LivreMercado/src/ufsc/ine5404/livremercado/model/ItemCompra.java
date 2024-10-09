@@ -24,7 +24,10 @@ public class ItemCompra {
     public int getQuantidade(){
         return quantidade;
     }
-    public void setQuantidade(int quantidade){
+    public void adicioneQuantidade (int quantidade) {
+        this.quantidade += quantidade;
+    }
+    public void setQuantidade (int quantidade) {
         this.quantidade = quantidade;
     }
     public Vendedor getVendedor(){

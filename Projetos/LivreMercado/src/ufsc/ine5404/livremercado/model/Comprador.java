@@ -19,8 +19,19 @@ public class Comprador extends Pessoa{
         carrinho.adicioneItem(produto, vendedor, quantidade);
     }
     
-    public void efeturarCompra(){
-        //implementar efetuar compra
+    public void efetuarCompra(){
+        for (ItemCompra item: carrinho.getItens()){
+            
+            try{
+                item.getVendedor().getEstoque().reduzaQuantidade(item.getProduto(), item.getQuantidade());
+                item.setQuantidade(0);
+            }catch(IllegalArgumentException e){}
+        }
+        for (ItemCompra item: carrinho.getItens()){
+            if(item.getQuantidade() == 0){
+                carrinho.removaItem(item.getProduto());
+            }
+        }
     }
     
     public Carrinho getCarrinho(){
