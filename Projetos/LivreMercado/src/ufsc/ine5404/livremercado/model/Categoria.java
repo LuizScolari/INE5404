@@ -23,12 +23,13 @@ public class Categoria {
     }
     
     public void adicioneProduto(Produto produto){
-        for (Produto p : produtos){
-            if(p.getNome().equals(produto.getNome())){
-                return;
+        if (!produtos.contains(produto)){
+            produtos.add(produto);
+            if (!produto.getCategoria().equals(this)){
+                produto.setCategoria(this);
+                produto.getCategoria().produtos.remove(produto);
             }
         }
-        produtos.add(produto);
     }
     
     public void adicioneSubcategoria(Categoria subcategoria){
@@ -37,7 +38,19 @@ public class Categoria {
         }   
     }
     
-    public void removaSubcategoria(Categoria subcategoria){
+    public void removaSubcategoria(Categoria subcategoria, boolean permanente) throws IllegalArgumentException {
+        
+        if (permanente){
+            for (Produto produto: subcategoria.produtos){
+                produtos.add(produto);
+                produto.setCategoria(this);
+            }
+            subcategoria.produtos.clear();
+            for (Categoria sub: subcategoria.subcategorias){
+                subcategorias.add(sub);
+            }
+            subcategoria.subcategorias.clear();
+        }
         subcategorias.remove(subcategoria);
     }
     
