@@ -21,17 +21,12 @@ public class Comprador extends Pessoa{
     
     public void efetuarCompra(){
         for (ItemCompra item: carrinho.getItens()){
-            
             try{
                 item.getVendedor().getEstoque().reduzaQuantidade(item.getProduto(), item.getQuantidade());
                 item.setQuantidade(0);
             }catch(IllegalArgumentException e){}
         }
-        for (ItemCompra item: carrinho.getItens()){
-            if(item.getQuantidade() == 0){
-                carrinho.removaItem(item.getProduto());
-            }
-        }
+        carrinho.getItens().removeIf(item->item.getQuantidade()==0);
     }
     
     public Carrinho getCarrinho(){
