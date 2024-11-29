@@ -26,8 +26,8 @@ public class Categoria {
         if (!produtos.contains(produto)){
             produtos.add(produto);
             if (!produto.getCategoria().equals(this)){
-                produto.setCategoria(this);
                 produto.getCategoria().produtos.remove(produto);
+                produto.setCategoria(this);
             }
         }
     }
